@@ -3,4 +3,4 @@ from cli.doomsday import play
 
 level = 0
 while True:
-    play(*atDifficulty(level))
+    off = play(*atDifficulty(level))
