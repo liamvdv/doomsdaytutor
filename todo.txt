@@ -1,8 +1,1 @@
 4) Allow weekday input with numbers
-
-
-Instead of large old setup.py with python setup.py sdist use setup.cfg and pip install build && python -m build
-
-These people have a special place in my heart:
-https://stackoverflow.com/a/59544216
-https://pybit.es/articles/how-to-package-and-deploy-cli-apps/

@@ -4,6 +4,8 @@ build: cleanup
 	python -m build
 	python -c 'print("-" * 80)'
 	twine check dist/*
+deploy: 
+	twine upload dist/*
 test-deploy: pypi-pkg
 	twine upload --repository testpypi --skip-existing dist/*
 cleanup:
