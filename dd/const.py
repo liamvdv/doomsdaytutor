@@ -6,6 +6,9 @@ WeekdayDisplayT = str
 StyleT = str
 
 styleFor: Dict[str, StyleT] = {
+    "control": Style.BRIGHT + Fore.YELLOW,
+    "unknown_op": Fore.RED,
+    "usage": Fore.BLUE,
     "section": Fore.BLUE,
     "data": Fore.BLACK + Style.DIM,
     "dataBright": Fore.WHITE + Style.DIM,

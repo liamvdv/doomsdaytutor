@@ -1,6 +1,3 @@
-from cli.difficulty import atDifficulty
-from cli.tutor import play
+from cli import run
 
-level = 0
-while True:
-    off = play(*atDifficulty(level))
+run()

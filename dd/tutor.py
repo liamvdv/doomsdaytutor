@@ -6,7 +6,7 @@ from babel.dates import format_date
 
 from .const import styleFor, weekdays, WeekdayT, locale
 from .iox import stdio, tcprint
-from .feedback import print_calc_doomsday, wdd_to_wk, date_to_wk
+from .feedback import print_calc_doomsday, wdd_to_wk, date_to_wd
 
 correct_msgs = ["Wow, well done!", "I'm impressed!"]
 incorrect_msgs = [
@@ -17,7 +17,7 @@ incorrect_msgs = [
 # return value states how far off the guess was in days. [0, 6]
 def play(start: date, end: date, io=stdio) -> int:  # TODO: pass stdin / out to inquirer
     date = random_date(start, end)
-    want = date_to_wk(date)
+    want = date_to_wd(date)
     guess = prompt_weekday(date, io)
     isCorrect = guess == want
     print_encouragement(isCorrect, io)

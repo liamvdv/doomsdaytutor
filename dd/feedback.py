@@ -2,7 +2,7 @@
 # georgian calendar
 import datetime
 from datetime import date
-from typing import Dict, Iterable, Tuple, Generator, List, Callable
+from typing import Iterable, Tuple, Generator
 
 from .iox import stdio, p_factory, tcprint
 from .const import (
@@ -12,7 +12,6 @@ from .const import (
     styleFor,
     WeekdayDisplayT,
     WeekdayT,
-    StyleT,
     locale,
 )
 
@@ -48,13 +47,13 @@ def print_calc_doomsday(date: date, io=stdio):
     p(1, f"Choose known doomsday in that month: ", end="")
     p(0, format_date(nearest_dd, locale=locale), s="dataBright")
 
-    wd = date_to_wk(nearest_dd)
+    wd = date_to_wd(nearest_dd)
     if nearest_dd != date:
         day_diff = date.day - nearest_dd.day
         wd = (year_dd + day_diff) % 7
 
-        p(1, f"Calculate the difference in days:", end="")
-        p(2, f"{date.day} - {nearest_dd.day} = {day_diff}")
+        p(1, f"Calculate the difference in days: ", end="")
+        p(0, f"{date.day} - {nearest_dd.day} = {day_diff}")
         p(1, "Add the difference to the known weekday and modulo 7:")
         p(2, f"({year_dd} + {day_diff}) mod 7 = {wd} = {weekdays[wd]}", s="dataBright")
 
@@ -88,7 +87,7 @@ def century_pattern(date_: date) -> Generator[int, WeekdayT, bool]:
     century_pattern = [5, 3, 2, 0]  # e. g. at 1800 1900 2000 2100
     cur_century = century_of(date_.year)
     dd = date(cur_century, 4, 4)  # known doomsday
-    cur_weekday = date_to_wk(dd)
+    cur_weekday = date_to_wd(dd)
     cur_at = century_pattern.index(cur_weekday)
 
     base_century = cur_century - (100 * cur_at)
@@ -156,7 +155,7 @@ def nearest_doomsday(date_: date) -> date:
 
 
 def assertCorrectness(date: date, result: WeekdayT):
-    assert date_to_wk(date) == result
+    assert date_to_wd(date) == result
 
 
 def century_of(year: int) -> int:
@@ -169,7 +168,7 @@ def wdd_to_wk(weekday: WeekdayDisplayT) -> WeekdayT:
 
 
 # convert datetime dates to weekday number
-def date_to_wk(date: date) -> WeekdayT:
+def date_to_wd(date: date) -> WeekdayT:
     # datetime uses monday = 0, tuesday = 1, ...
     wk = date.weekday()
     return (wk + 1) % 7

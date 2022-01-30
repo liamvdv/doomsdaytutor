@@ -26,6 +26,7 @@ difficulty_levels = [
     span_years(-1000, 1001),
     (date(MINYEAR, 1, 1), date(MAXYEAR, 1, 1)),
 ]
+NUM_LEVELS = len(difficulty_levels)
 
 
 def atDifficulty(level=0) -> Tuple[date, date]:
