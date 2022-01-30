@@ -38,7 +38,10 @@ def prompt_weekday(date: date, io=stdio) -> WeekdayT:
     prompt = f"The {local_date} is a"
     capitalize = lambda s: s[0].upper() + s[1:]
     choices = list(map(capitalize, weekdays))
-    result = inquirer.list_input(prompt, choices=choices)
+    try:
+        result = inquirer.list_input(prompt, choices=choices)
+    except KeyboardInterrupt:
+        exit(0)
     # delete choices ? https://stackoverflow.com/questions/53980370/python-inquirer-module-remove-choices-when-done-using-curses
     return wdd_to_wk(result)
 

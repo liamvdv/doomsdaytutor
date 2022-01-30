@@ -1,4 +1,1 @@
-1) Add exit option
-2) Add set level option
-3) Add an intro 
 4) Allow weekday input with numbers
