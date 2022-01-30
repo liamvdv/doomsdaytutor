@@ -1,12 +1,11 @@
 import inquirer
 from typing import Tuple
 
-from dd.tutor import play
-from dd.difficulty import NUM_LEVELS, atDifficulty
-from dd.iox import stdio
-from dd.feedback import tcprint, p_factory
+from .dd.difficulty import NUM_LEVELS
+from .dd.iox import stdio
+from .dd.feedback import p_factory
 
-from commands import level, quit, stat, info
+from .commands import level, quit, stat, info
 
 commands = {
     "quit": quit,

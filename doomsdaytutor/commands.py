@@ -1,7 +1,7 @@
-from dd.iox import stdio
-from dd.tutor import play
-from dd.difficulty import atDifficulty
-from dd.feedback import p_factory
+from .dd.iox import stdio
+from .dd.tutor import play
+from .dd.difficulty import atDifficulty
+from .dd.feedback import p_factory
 
 tldr = """Idea: Now the weekday of a date that is near the asked date.
 
