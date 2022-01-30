@@ -71,4 +71,8 @@ def stat(io=stdio, **kwargs):
         perc = str(round(correct / rounds, 4) * 100) + "% accuracy"
     else:
         perc = ""
-    p(0, f"You played {rounds} rounds and got {correct} correct.", perc)
+    p(
+        0,
+        f"You played {rounds} {'round' if rounds == 1 else 'rounds'} and got {correct} correct.",
+        perc,
+    )
