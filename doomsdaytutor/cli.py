@@ -1,4 +1,4 @@
-import inquirer
+from InquirerPy import inquirer
 from typing import Tuple
 
 from .dd.difficulty import NUM_LEVELS
@@ -60,7 +60,7 @@ def run(io=stdio):
 def nextOp(io=stdio) -> str:
     io.start_middleman_sysstdio()
     try:
-        text = inquirer.text(message="(op)")
+        text = inquirer.text(message="(op)").execute()
     except KeyboardInterrupt:
         return "quit"
     finally:
