@@ -8,7 +8,7 @@ deploy:
 	twine upload dist/*
 test-local-install:
 	pip install ./dist/doomsdaytutor-$(VERSION).tar.gz
-test-deploy: pypi-pkg
+test-deploy: build
 	twine upload --repository testpypi --skip-existing dist/*
 test-install:
 	pip install -i https://test.pypi.org/simple/ doomsdaytutor==$(VERSION) --extra-index-url https://pypi.org/simple/
