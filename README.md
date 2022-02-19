@@ -10,7 +10,12 @@ Doomsdaytutor will present you with questions and explain the algorithm visually
 
 <img src="assets/usage.gif" width="625" height="600">
 
+<a href="https://pypistats.org/packages/doomsdaytutor/">
+    <img src="https://img.shields.io/pypi/dm/doomsdaytutor?color=blue&style=flat&label=pypi%20downloads" />
+</a>
+
 ## Installation
+
 All common operating systems (Windows, Mac and Linux) are supported. Open your terminal and follow along.
 
 `doomsdaytutor` requires Python version>=3.6 so make sure you have it installed. 
