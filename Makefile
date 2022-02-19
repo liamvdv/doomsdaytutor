@@ -6,14 +6,16 @@ build: cleanup
 	twine check dist/*
 deploy: 
 	twine upload dist/*
+test-local-install:
+	pip install ./dist/doomsdaytutor-$(VERSION).tar.gz
 test-deploy: pypi-pkg
 	twine upload --repository testpypi --skip-existing dist/*
+test-install:
+	pip install -i https://test.pypi.org/simple/ doomsdaytutor==$(VERSION) --extra-index-url https://pypi.org/simple/
 cleanup:
 	rm -rf dist
 	rm -rf doomsdaytutor.egg-info
-test-env: cleanup-test-env
+venv: cleanup-venv
 	virtualenv venv
-test-install:
-	pip install -i https://test.pypi.org/simple/ doomsdaytutor==$(VERSION) --extra-index-url https://pypi.org/simple/
-cleanup-test-env:
+cleanup-venv:
 	rm -rf venv

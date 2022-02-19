@@ -1,0 +1,30 @@
+Publish a new version of doomsdaytutor
+0) Make sure the app runs as expected with 
+    python -m doomsdaytutor
+1) Bump version according to change, make sure that dependencies are listed correctly in  setup.cfg
+2) Process of deploying: 
+    # first test with local distribution
+    1) make build
+    2) make venv && activate (source venv/bin/actiavate)
+    3) make test-local-install
+        Check that app runs as expected
+    4) deactivate && make cleanup-test-env
+
+    # now test with example pypi (note: version must be bumped if done multiple times)
+    6) make test-deploy
+    7) make venv && activate
+    8) make test-install
+        Check that app runs as expected
+    9) deactivate && make cleanup-test-env
+
+    # publish to real pypi
+    10) make deploy
+
+    # check that deployment works
+    11) make test-deploy
+    12) make venv && activate
+    13) pip install doomsdaytutor
+        Check that app runs as expected
+    14) deactivate && make cleanup-test-env
+
+    DONE!
