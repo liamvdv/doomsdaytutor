@@ -1,0 +1,2 @@
+[console_scripts]
+doomsdaytutor = doomsdaytutor.cli:run
