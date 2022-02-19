@@ -1,7 +1,7 @@
 from random import choice, randrange
 from datetime import date, timedelta
 
-import inquirer
+from InquirerPy import inquirer
 from babel.dates import format_date
 
 from .const import styleFor, weekdays, WeekdayT, locale
@@ -39,10 +39,9 @@ def prompt_weekday(date: date, io=stdio) -> WeekdayT:
     capitalize = lambda s: s[0].upper() + s[1:]
     choices = list(map(capitalize, weekdays))
     try:
-        result = inquirer.list_input(prompt, choices=choices)
+        result = inquirer.select(message=prompt, choices=choices).execute()
     except KeyboardInterrupt:
         exit(0)
-    # delete choices ? https://stackoverflow.com/questions/53980370/python-inquirer-module-remove-choices-when-done-using-curses
     return wdd_to_wk(result)
 
 
